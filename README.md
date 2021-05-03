@@ -1,2 +1,2 @@
-# Dead by Daylight man statistic 
-Widget for OBS using firebase
+# Dead by Daylight Man Statistic 
+Widget with statistic for OBS using firebase
