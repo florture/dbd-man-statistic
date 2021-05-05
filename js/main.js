@@ -28,7 +28,7 @@ dbRef.get().then((snapshot) => {
 // main run function
 function run(mans) {
   const parsedMans = calculateKillRate(Object.values(mans));
-  const sortedMans = sortByKillRate(parsedMans);
+  const sortedMans = sortByField(parsedMans, 'matches');
   fillHtml(sortedMans);
 } 
 
@@ -40,11 +40,11 @@ function calculateKillRate(mans) {
   }))
 }
 
-// sort mans by kill rate
-function sortByKillRate(parsedMans) {
+// sort mans by field
+function sortByField(parsedMans, field) {
   return parsedMans.sort((a, b) => {
-    if (a.kr > b.kr) return -1;
-    if (a.kr < b.kr) return 1;
+    if (a[field] > b[field]) return -1;
+    if (a[field] < b[field]) return 1;
     return 0;
   });
 }
@@ -64,9 +64,11 @@ function addManBlock(man, container) {
 
   block.innerHTML = `
     <img class="item__pic" src="pics/${man.pic}"/>
-    <div class="item__name">${man.name}</div>
-    <div class="item__matches">${man.matches}</div>
-    <div class="item__kr">${man.kr}</div>
+    <div class="desc">
+      <div class="desc__name">${man.name}</div>
+      <div class="desc__matches">${man.matches} каток</div>
+      <div class="desc__kr">${man.kr}% убийств</div>
+    </>
   `;
 
   container.appendChild(block);
