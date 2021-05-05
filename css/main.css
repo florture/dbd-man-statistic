@@ -10,6 +10,7 @@ body {
 
 #container {
     display: flex;
+    overflow: hidden;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
@@ -21,12 +22,14 @@ body {
 
 
 #container .item {
-    width: 100px;
-    min-width: 100px;
+    /* TODO width: 100px;
+    min-width: 100px; */
+    width: 12vw;
+    min-width: 12vw;
 }
 
 .item + .item {
-    margin-left: 6px;
+    margin-left: 10px;
 }
 
 #container .item .desc {
@@ -39,9 +42,11 @@ body {
 }
 
 #container .item .desc .desc__name {
-    font-size: 14px;
+    /* TODO font-size: 14px;*/
+    font-size: 1.65vw;
     color: #d47d12;
-    padding-bottom: 5px;
+    /* TODO padding-bottom: 5px; */
+    padding-bottom: 0.65vw;
 }
 
 #container .item .desc .desc__matches {
@@ -54,7 +59,9 @@ body {
 
 #container .item .desc .desc__matches,
 #container .item .desc .desc__kr {
-    font-size: 13px;
-    line-height: 16px;
+    /* TODO font-size: 13px;*/
+    font-size: 1.5vw;
+    /* TODO line-height: 16px; */
+    line-height: 1.8vw;
     color: #ceb382;;
 }
