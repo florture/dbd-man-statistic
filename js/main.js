@@ -1,3 +1,13 @@
+// url data
+const urlParams = new URLSearchParams(window.location.search);
+const urlData = {
+  quantity: urlParams.get('quantity')
+}
+
+// global data
+const appContainer = document.querySelector('#container');
+const appContainerStyle = getElementStyle(appContainer);
+
 // Configure Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyANmhnzVKy1x7MZ-bO_mRvBuCOlH0XIQ_g",
@@ -27,10 +37,16 @@ dbRef.get().then((snapshot) => {
 
 // main run function
 function run(mans) {
+  initHtml(mans);
+  makeUpHtml();
+} 
+
+// init html and fill data
+function initHtml(mans) {
   const parsedMans = calculateKillRate(Object.values(mans));
   const sortedMans = sortByField(parsedMans, 'matches');
   fillHtml(sortedMans);
-} 
+}
 
 // calculate kill rate by kills/(matches*4/100)
 function calculateKillRate(mans) {
@@ -51,14 +67,13 @@ function sortByField(parsedMans, field) {
 
 // fill html with blocks
 function fillHtml(sortedMans) {
-  const container = document.querySelector('#container');
   sortedMans.forEach(man => {
-    addManBlock(man, container);
+    addManBlock(man);
   });
 }
 
 // add a single man block
-function addManBlock(man, container) {
+function addManBlock(man) {
   const block = document.createElement("div");
   block.className = 'item';
 
@@ -71,5 +86,41 @@ function addManBlock(man, container) {
     </>
   `;
 
-  container.appendChild(block);
+  appContainer.appendChild(block);
+}
+
+// show only selected card quantity
+function makeUpHtml() {
+  const item = document.querySelectorAll('.item')[1];
+  const itemStyle = getElementStyle(item);
+  const itemStyleData = {
+    width: trimToInt(itemStyle.width),
+    leftMargin: trimToInt(itemStyle.marginLeft)
+  }
+
+  const newWidth = calculateSliderWidth(itemStyleData);
+  appContainer.style.width = `${newWidth}px`
+}
+
+// calculate width for container
+function calculateSliderWidth(itemStyleData) {
+  const quantity = urlData.quantity;
+
+  return (itemStyleData.width * quantity)
+  + (itemStyleData.leftMargin * (quantity - 2))
+  + trimToInt(appContainerStyle.paddingLeft)
+}
+
+function runSlider() {
+  // TODO
+}
+
+// get style data of element
+function getElementStyle(el) {
+  return el.currentStyle || window.getComputedStyle(el);
+}
+
+// trim string to int
+function trimToInt(value) {
+  return parseInt(value.replace(/\D/g,''))
 }

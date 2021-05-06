@@ -17,15 +17,14 @@ body {
     align-items: flex-end;
     font-family: Arial, Helvetica, sans-serif;
     background: #312e2b;
-    padding: 12px;
+    padding: 17px 12px;
 }
 
 
 #container .item {
-    /* TODO width: 100px;
-    min-width: 100px; */
-    width: 12vw;
-    min-width: 12vw;
+    width: 130px;
+    min-width: 130px;
+    transition: margin 650ms;
 }
 
 .item + .item {
@@ -33,7 +32,7 @@ body {
 }
 
 #container .item .desc {
-    padding: 7px 3px 0 3px;
+    padding: 9px 3px 0 3px;
 }
 
 #container .item .item__pic {
@@ -42,26 +41,14 @@ body {
 }
 
 #container .item .desc .desc__name {
-    /* TODO font-size: 14px;*/
-    font-size: 1.65vw;
+    font-size: 18px;
     color: #d47d12;
-    /* TODO padding-bottom: 5px; */
-    padding-bottom: 0.65vw;
-}
-
-#container .item .desc .desc__matches {
-
-}
-
-#container .item .desc .desc__kr {
-
+    padding-bottom: 7px;
 }
 
 #container .item .desc .desc__matches,
 #container .item .desc .desc__kr {
-    /* TODO font-size: 13px;*/
-    font-size: 1.5vw;
-    /* TODO line-height: 16px; */
-    line-height: 1.8vw;
+    font-size: 15px;
+    line-height: 18px;
     color: #ceb382;;
 }
