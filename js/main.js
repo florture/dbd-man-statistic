@@ -1,22 +1,26 @@
 // url data
 const urlParams = new URLSearchParams(window.location.search);
 const urlData = {
-  quantity: urlParams.get('quantity')
+  apiKey: urlParams.get('apiKey'),
+  projectId: urlParams.get('projectId'),
+  quantity: urlParams.get('quantity') || 9,
 }
 
-// global data
-const appContainer = document.querySelector('#container');
-const appContainerStyle = getElementStyle(appContainer);
+// global app data
+const app = {container: {selector: document.querySelector('#container')}};
+
+// slider data
+const slider = {speed: 4, clearTransition: '0.35s'}
 
 // Configure Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyANmhnzVKy1x7MZ-bO_mRvBuCOlH0XIQ_g",
-    authDomain: "dbd-stuff.firebaseapp.com",
-    projectId: "dbd-stuff",
-    storageBucket: "dbd-stuff.appspot.com",
+    apiKey: urlData.apiKey,
+    authDomain: `${urlData.projectId}.firebaseapp.com`,
+    projectId: urlData.projectId,
+    storageBucket: `${urlData.projectId}.appspot.com`,
     messagingSenderId: "426738143693",
     appId: "1:426738143693:web:f6c2b7c76f3cef15b5b484",
-    databaseURL: ' https://dbd-stuff-default-rtdb.europe-west1.firebasedatabase.app'
+    databaseURL: `https://${urlData.projectId}-default-rtdb.europe-west1.firebasedatabase.app`
   };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -39,10 +43,12 @@ dbRef.get().then((snapshot) => {
 function run(mans) {
   initHtml(mans);
   makeUpHtml();
+  runSlider();
 } 
 
 // init html and fill data
 function initHtml(mans) {
+  app.container.style = getElementStyle(app.container.selector);
   const parsedMans = calculateKillRate(Object.values(mans));
   const sortedMans = sortByField(parsedMans, 'matches');
   fillHtml(sortedMans);
@@ -86,20 +92,23 @@ function addManBlock(man) {
     </>
   `;
 
-  appContainer.appendChild(block);
+  app.container.selector.appendChild(block);
 }
 
 // show only selected card quantity
 function makeUpHtml() {
+  app.item = {selector: document.querySelector('.item')}
+  // item to get offset size
   const item = document.querySelectorAll('.item')[1];
   const itemStyle = getElementStyle(item);
-  const itemStyleData = {
+  app.item.parsedStyle = {
     width: trimToInt(itemStyle.width),
-    leftMargin: trimToInt(itemStyle.marginLeft)
+    margin: trimToInt(itemStyle.marginLeft),
+    duration: itemStyle.transitionDuration
   }
 
-  const newWidth = calculateSliderWidth(itemStyleData);
-  appContainer.style.width = `${newWidth}px`
+  const newWidth = calculateSliderWidth(app.item.parsedStyle);
+  app.container.selector.style.width = `${newWidth}px`
 }
 
 // calculate width for container
@@ -107,11 +116,27 @@ function calculateSliderWidth(itemStyleData) {
   const quantity = urlData.quantity;
 
   return (itemStyleData.width * quantity)
-  + (itemStyleData.leftMargin * (quantity - 2))
-  + trimToInt(appContainerStyle.paddingLeft)
+  + (itemStyleData.margin * (quantity - 2))
+  + trimToInt(app.container.style.paddingLeft)
 }
 
+// start slider
 function runSlider() {
+  // TODO
+}
+
+// start slider ticker
+function runTicker() {
+  // TODO
+}
+
+// mobe slider with step
+function moveSlider() {
+  // TODO
+}
+
+// return slider to default position
+function clearSlider() {
   // TODO
 }
 
