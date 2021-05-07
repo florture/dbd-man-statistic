@@ -1,0 +1,140 @@
+{
+  "blight" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Мор",
+    "pic" : "blight.png"
+  },
+  "cannibal" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Каннибал",
+    "pic" : "cannibal.png"
+  },
+  "clown" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Клоун",
+    "pic" : "clown.png"
+  },
+  "deathslinger" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Стрелок",
+    "pic" : "deathslinger.png"
+  },
+  "demogorgon" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Демогоргон",
+    "pic" : "demogorgon.png"
+  },
+  "doctor" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Доктор",
+    "pic" : "doctor.png"
+  },
+  "executioner" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Палач",
+    "pic" : "executioner.png"
+  },
+  "ghostFace" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Гоуст Фейс",
+    "pic" : "ghostFace.png"
+  },
+  "hag" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Ведьма",
+    "pic" : "hag.png"
+  },
+  "hillbilly" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Деревенщина",
+    "pic" : "hillbilly.png"
+  },
+  "huntress" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Охотница",
+    "pic" : "huntress.png"
+  },
+  "legion" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Легион",
+    "pic" : "legion.png"
+  },
+  "nightmare" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Кошмар",
+    "pic" : "nightmare.png"
+  },
+  "nurse" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Медсестра",
+    "pic" : "nurse.png"
+  },
+  "oni" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Они",
+    "pic" : "oni.png"
+  },
+  "pig" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Свинья",
+    "pic" : "pig.png"
+  },
+  "plague" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Чума",
+    "pic" : "plague.png"
+  },
+  "shape" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Тень",
+    "pic" : "shape.png"
+  },
+  "spirit" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Дух",
+    "pic" : "spirit.png"
+  },
+  "trapper" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Охотник",
+    "pic" : "trapper.png"
+  },
+  "trickster" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Трюкач",
+    "pic" : "trickster.png"
+  },
+  "twins" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Близнецы",
+    "pic" : "twins.png"
+  },
+  "wraith" : {
+    "kills" : 0,
+    "matches" : 0,
+    "name" : "Призрак",
+    "pic" : "wraith.png"
+  }
+}
