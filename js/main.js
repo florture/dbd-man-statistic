@@ -4,13 +4,11 @@ const urlData = {
   apiKey: urlParams.get('apiKey'),
   projectId: urlParams.get('projectId'),
   quantity: urlParams.get('quantity') || 9,
+  sliderSpeed: urlParams.get('sliderSpeed') || 3500,
 }
 
 // global app data
 const app = {container: {selector: document.querySelector('#container')}};
-
-// slider data
-const slider = {moveSpeed: 3500, clearDuration: '0.35s'}
 
 // Configure Firebase
 const firebaseConfig = {
@@ -124,18 +122,19 @@ function calculateSliderWidth(itemStyleData) {
 // start slider
 function runSlider() {
   const itemLength = document.querySelectorAll('.item').length;
-  let showedItems = urlData.quantity;
+  const quantity = urlData.quantity;
+  let showedItems = quantity;
 
-  if (itemLength > urlData.quantity) {
+  if (itemLength > quantity) {
     setInterval(() => {
         if (showedItems < itemLength) {
           moveSlider();
           showedItems++;
         } else {
           clearSlider();
-          showedItems = urlData.quantity;
+          showedItems = quantity;
         }
-    }, slider.moveSpeed);
+    }, urlData.sliderSpeed);
   }
 }
 
@@ -149,16 +148,7 @@ function moveSlider() {
 
 // return slider to default position
 function clearSlider() {
-  const defaultDuation = app.item.parsedStyle.duration;
-  const clearDuration = slider.clearDuration;
-
-  app.item.selector.style.duration = clearDuration;
   app.item.selector.style.marginLeft = "0px";
-
-  setTimeout(() => {
-    app.item.selector.style.duration = defaultDuation;
-  }, (trimToInt(clearDuration) + '0'))
-  
 }
 
 // get style data of element
