@@ -10,7 +10,7 @@ const urlData = {
 const app = {container: {selector: document.querySelector('#container')}};
 
 // slider data
-const slider = {speed: 4, clearTransition: '0.35s'}
+const slider = {moveSpeed: 2000, clearDuration: '0.35s'}
 
 // Configure Firebase
 const firebaseConfig = {
@@ -122,22 +122,40 @@ function calculateSliderWidth(itemStyleData) {
 
 // start slider
 function runSlider() {
-  // TODO
-}
+  const itemLength = document.querySelectorAll('.item').length;
+  let showedItems = urlData.quantity;
 
-// start slider ticker
-function runTicker() {
-  // TODO
+  if (itemLength > urlData.quantity) {
+    setInterval(() => {
+        if (showedItems <= urlData.quantity) {
+          moveSlider();
+          showedItems++;
+        } else {
+          clearSlider();
+          showedItems = urlData.quantity;
+        }
+    }, slider.moveSpeed);
+  }
 }
 
 // mobe slider with step
 function moveSlider() {
-  // TODO
+  const stepSize = app.item.parsedStyle.width + app.item.parsedStyle.margin;
+  app.item.selector.style.marginLeft = `-${stepSize}px`
 }
 
 // return slider to default position
 function clearSlider() {
-  // TODO
+  const defaultDuation = app.item.parsedStyle.duration;
+  const clearDuration = slider.clearDuration;
+  
+  app.item.selector.style.duration = clearDuration;
+  app.item.selector.style.marginLeft = "0px";
+
+  setTimeout(() => {
+    app.item.selector.style.duration = defaultDuation;
+  }, (trimToInt(clearDuration) + '0'))
+  
 }
 
 // get style data of element

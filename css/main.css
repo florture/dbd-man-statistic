@@ -24,7 +24,7 @@ body {
 #container .item {
     width: 130px;
     min-width: 130px;
-    transition: margin 650ms;
+    transition: margin 750ms;
 }
 
 .item + .item {
