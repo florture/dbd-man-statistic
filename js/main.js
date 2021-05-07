@@ -10,7 +10,7 @@ const urlData = {
 const app = {container: {selector: document.querySelector('#container')}};
 
 // slider data
-const slider = {moveSpeed: 2000, clearDuration: '0.35s'}
+const slider = {moveSpeed: 2500, clearDuration: '0.35s'}
 
 // Configure Firebase
 const firebaseConfig = {
@@ -106,6 +106,7 @@ function makeUpHtml() {
     margin: trimToInt(itemStyle.marginLeft),
     duration: itemStyle.transitionDuration
   }
+  app.item.style = getElementStyle(app.item.selector);
 
   const newWidth = calculateSliderWidth(app.item.parsedStyle);
   app.container.selector.style.width = `${newWidth}px`
@@ -127,7 +128,7 @@ function runSlider() {
 
   if (itemLength > urlData.quantity) {
     setInterval(() => {
-        if (showedItems <= urlData.quantity) {
+        if (showedItems < itemLength) {
           moveSlider();
           showedItems++;
         } else {
@@ -141,14 +142,16 @@ function runSlider() {
 // mobe slider with step
 function moveSlider() {
   const stepSize = app.item.parsedStyle.width + app.item.parsedStyle.margin;
-  app.item.selector.style.marginLeft = `-${stepSize}px`
+  const prevMargin = trimToInt(app.item.style.marginLeft);
+
+  app.item.selector.style.marginLeft = `-${prevMargin + stepSize}px`
 }
 
 // return slider to default position
 function clearSlider() {
   const defaultDuation = app.item.parsedStyle.duration;
   const clearDuration = slider.clearDuration;
-  
+
   app.item.selector.style.duration = clearDuration;
   app.item.selector.style.marginLeft = "0px";
 
