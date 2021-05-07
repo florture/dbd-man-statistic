@@ -3,8 +3,8 @@ const urlParams = new URLSearchParams(window.location.search);
 const urlData = {
   apiKey: urlParams.get('apiKey'),
   projectId: urlParams.get('projectId'),
-  quantity: urlParams.get('quantity') || 9,
   sliderSpeed: urlParams.get('sliderSpeed') || 3500,
+  quantity: urlParams.get('quantity') || 9,
 }
 
 // global app data
