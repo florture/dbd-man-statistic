@@ -10,7 +10,7 @@ const urlData = {
 const app = {container: {selector: document.querySelector('#container')}};
 
 // slider data
-const slider = {moveSpeed: 2500, clearDuration: '0.35s'}
+const slider = {moveSpeed: 3500, clearDuration: '0.35s'}
 
 // Configure Firebase
 const firebaseConfig = {
