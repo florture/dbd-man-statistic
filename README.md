@@ -5,5 +5,5 @@
 ### URL params
  * **apiKey*** - your firebase api key
  * **projectId*** - your firebase project id
- * _sliderSpeed_ - slider move speed (3500 by default)
+ * _sliderSpeed_ - slider move speed in milliseconds (3500 by default)
  * _quantity_ - showing quantity of items (9 by default)
