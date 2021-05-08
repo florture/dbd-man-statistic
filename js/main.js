@@ -80,6 +80,7 @@ function fillHtml(sortedMans) {
 function addManBlock(man) {
   const block = document.createElement("div");
   block.className = 'item';
+  block.setAttribute('name', man.name);
 
   block.innerHTML = `
     <img class="item__pic" src="pics/${man.pic}"/>
