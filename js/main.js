@@ -72,22 +72,22 @@ function sortByField(parsedMans, field) {
 // fill html with blocks
 function fillHtml(sortedMans) {
   sortedMans.forEach(man => {
-    addManBlock(man);
+    addItemCard(man);
   });
 }
 
-// add a single man block
-function addManBlock(man) {
+// add an item card
+function addItemCard(item) {
   const block = document.createElement("div");
   block.className = 'item';
-  block.setAttribute('name', man.name);
+  block.setAttribute('name', item.name);
 
   block.innerHTML = `
-    <img class="item__pic" src="pics/${man.pic}"/>
+    <img class="item__pic" src="pics/${item.pic}"/>
     <div class="desc">
-      <div class="desc__name">${man.name}</div>
-      <div class="desc__matches">${man.matches} каток</div>
-      <div class="desc__kr">${man.kr}% убийств</div>
+      <div class="desc__name">${item.name}</div>
+      <div class="desc__matches">${item.matches} каток</div>
+      <div class="desc__kr">${item.kr}% убийств</div>
     </>
   `;
 
